@@ -110,6 +110,57 @@ string函数中将istream 参数作为返回值，和输入操作符一样也可
 		s[n];      返回s中位置为N的字符  
 		s1+s2;     拼接字符串，返回生成新的字符串
 		s1==s2     判断字符串是否相等，相等返回true，否则返回false
+string类型通过下标[]来进行访问string对象中的某一个字符。但是下标取值需要一个string_type 类型的值，来标明要访问字符的位置。这个下标的值通常被称作为“下标”或者“索引”  
+		
+		例如如下代码:
+		string s="deadawdawd";
+		for(string::size_type i=0;i!=s.size();++i){
+			cout << s[i] << endl;
+		}
+
+需要对string对象进行操作，则需要调用头文件cctype类型 `include "cctype"` 有关cctype中的函数一般存在如下：  
+对于上述函数一般测试给定字符是否满足条件。如果测试失败则函数返回0，测试为真当返回一个无意义的非0，表示被测字符符合条件。  
+
+###标准库vector类型  
+vector是同一种类型的对象的集合，每一个对象都有一个对应的整数索引值，和string对象一样。标准库将负责管理与存储元素相关的内存，我们把vector称之为容器，是因为它可以包含其他的对象。一个容器中的所有对象必须是类型相同的。使用vector之前，必须包含相同的头文件`include <vector>`以及`using std::vector`。  
+
+vector是一个类型模板，使用模板可以编写一个类的定义或者函数的定义，而用于多个不同的数据类型，使用类模板的时候只需要了解类模板是如何定义的就可以了。  
+
+声明从类模板产生的某种类型的对象，需要提供附加的信息，信息的种类取决于模板。以vector为例，必须说明vector使用的是何种类型的对象，通过该类型放在<>尖括号之后来进行定义声明。  
+
+###vector关健概念:vector对象动态增长
+vector对象的重要属性在于可以在运行时高效的添加元素。因为vector增长的效率高，在元素值已知的情况下，最好是动态的增加元素。
+ 
+vector提供了一些操作，例如判断集合是不是为空，集合中元素的个数。在集合的末尾增加元素，如以下的例子：  
+
+		vector s;
+		s.empty();
+		s.size();
+		s.push_back(t);
+
+vector对象中的size操作类似于string对象中的相关操作。成员函数size返回相应的vector类定义的size_type的值。  
+
+使用size_type类型时，必须指出该类型是在哪里定义的。vector类型总是包括vector的元素的类型：  
+
+		vector<int>::size_type i; //正确写法  
+		vector::size_type i;      //错误写法
+
+向vector添加元素  
+
+push_back()操作接受一个元素值，并且把他作为一个新的元素添加到vector对象的后面，也就是"插入(push)"到vector对象的后面"back"  
+
+如一下代码：  
+
+	string word;
+	vector<string> text;
+	while(cin >> world){
+		text.push_back(world); //append word to text
+	}
+
+###安全的泛型编程
+
+c++与java一些编程的区别，例如在for循环中一般使用`!=`作为判断的依据，而不使用`<=`。C++程序习惯上优先选用`!=`来作为判断的依据
+
 
 
 
