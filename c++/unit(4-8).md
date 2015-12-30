@@ -420,5 +420,24 @@ endl结束输出，并且刷新缓冲区，初次之外，还可以使用flush,�
 tie函数将istream 或 ostream 对象调用，使用的时候都将一个函数绑定在输出实参上，任何io操作都将会刷新实参关联的缓冲区。  
 
 
+###文件的输入以及输出
+
+fstream 头文件定义了三种支持文件io的类型：  
+
+1. ifstream，由 istream 派生而来，提供读文件的功能。  
+2. ofstream，由 ostream 派生而来，提供写文件的功能。  
+3. fstream，由 iostream 派生而来，提供读写同一个文件的功能。
+
+###文件流对象的使用 
+
+	ifstream infile(ifile.c_str()); 
+ 
+	ofstream outfile(ofile.c_str());
+
+上述的代码定义并且打开一对fstream对象，infile 是读取的流，而outfile是写的流，相当于打开了特定的文件。
+
+
+
+
 
 			
